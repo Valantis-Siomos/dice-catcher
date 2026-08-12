@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c6wsbyjga68up"]
+
+[ext_resource type="Texture2D" uid="uid://dwfi65sfhbmnm" path="res://assets/Dice.png" id="1_4fys5"]
+[ext_resource type="Script" uid="uid://cs55sk0d0l4gg" path="res://scenes/dice/dice.gd" id="1_fvt51"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+radius = 42.0
+
+[node name="Dice" type="Area2D" unique_id=130175815]
+script = ExtResource("1_fvt51")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1157010604]
+position = Vector2(0.5, 43)
+texture = ExtResource("1_4fys5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1623808068]
+position = Vector2(0.5, 43)
+shape = SubResource("CircleShape2D_xrivr")

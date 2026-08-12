@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b3upubjmnk1eq"]
+
+[ext_resource type="Script" uid="uid://b7rsbmmbdfmj1" path="res://scenes/game/game.gd" id="1_0sr1o"]
+[ext_resource type="Texture2D" uid="uid://djjponsttwqfs" path="res://assets/GemBg.png" id="1_sul5r"]
+[ext_resource type="PackedScene" uid="uid://c6wsbyjga68up" path="res://scenes/dice/dice.tscn" id="2_7h61r"]
+[ext_resource type="AudioStream" uid="uid://rxwcie4b6wbb" path="res://assets/tetris.mp3" id="4_kelw5"]
+[ext_resource type="PackedScene" uid="uid://bx7c4mo02v7sl" path="res://scenes/Fox/fox.tscn" id="5_lfrn8"]
+[ext_resource type="FontFile" uid="uid://dteiqmwvsiakg" path="res://assets/TitanOne-Regular.ttf" id="6_5i0tg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xrivr"]
+font = ExtResource("6_5i0tg")
+font_size = 48
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 21
+shadow_color = Color(0, 0, 0, 0.42745098)
+shadow_offset = Vector2(2, 2)
+
+[node name="Game" type="Node" unique_id=803227681]
+script = ExtResource("1_0sr1o")
+dice_scene = ExtResource("2_7h61r")
+
+[node name="GemBg" type="Sprite2D" parent="." unique_id=1361441321]
+position = Vector2(597, 294.00003)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_sul5r")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1449358082]
+wait_time = 2.0
+autostart = true
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1160476073]
+stream = ExtResource("4_kelw5")
+autoplay = true
+parameters/looping = true
+
+[node name="Fox" parent="." unique_id=304169591 instance=ExtResource("5_lfrn8")]
+position = Vector2(533, 587)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=906510933]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 153.0
+offset_bottom = 70.0
+text = "0000"
+label_settings = SubResource("LabelSettings_xrivr")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="eaten_dice" from="Fox" to="." method="_on_fox_eaten_dice"]
