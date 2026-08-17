@@ -30,4 +30,4 @@ func check_off_screen() -> void:
 	if get_viewport_rect().end.y < position.y:
 		get_tree().paused = true
 		off_screen.emit()
-		queue_free()
+		#queue_free()

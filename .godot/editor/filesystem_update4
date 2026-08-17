@@ -1,3 +1,5 @@
 res://scenes/game/game.tscn
-res://scenes/dice/dice.gd
+res://scenes/Fox/fox.tscn
 res://scenes/game/game.gd
+res://resources/title_label.tres
+res://scenes/Fox/fox.gd

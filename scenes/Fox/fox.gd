@@ -4,7 +4,7 @@ extends Area2D
 
 signal eaten_dice
 
-@export var speed: float = 200.0
+@export var speed: float = 300.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var sound: AudioStreamPlayer = $sound
 
